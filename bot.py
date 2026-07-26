@@ -1,4 +1,5 @@
 import json
+import os
 
 from datetime import datetime
 
@@ -11,7 +12,10 @@ from telegram.ext import (
     filters,
 )
 
-from config import TOKEN
+try:
+    from config import TOKEN
+except ImportError:
+    TOKEN = os.getenv("TOKEN")
 
 
 # ---------- КОНСТАНТЫ ----------
